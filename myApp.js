@@ -1,8 +1,8 @@
 var express = require('express'); 
 var app = express();              
+const helmet = require('helmet');
 
-
-var helmet=require('helmet');
+app.disable('x-powered-by');
 app.use(helmet.hidePoweredBy({setTo: 'PHP 4.2.0'}));
 app.use(helmet.frameguard({action: 'deny'}));
 app.use(helmet.xssFilter());
