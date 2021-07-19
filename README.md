@@ -24,17 +24,17 @@ In the Information Security and Quality Assurance Certification, you'll learn ho
 
 |                           | <h3 align="center">Project</h3> |                            |
 | :------------------------ | :------------------------------ | :------------------------- |
-| Metric-Imperial Converter | [View Code][proj01]             | [View Requirements][req01] |
-| Issue Tracker             | [View Code][proj02]             | [View Requirements][req02] |
-| Personal Library          | [View Code][proj03]             | [View Requirements][req03] |
-| Stock Price Checker       | [View Code][proj04]             | [View Requirements][req04] |
-| Anonymous Message Board   | [View Code][proj05]             | [View Requirements][req05] |
+| Metric-Imperial Converter | [View Project][proj01]          | [View Requirements][req01] |
+| Issue Tracker             | [View Project][proj02]          | [View Requirements][req02] |
+| Personal Library          | [View Project][proj03]          | [View Requirements][req03] |
+| Stock Price Checker       | [View Project][proj04]          | [View Requirements][req04] |
+| Anonymous Message Board   | [View Project][proj05]          | [View Requirements][req05] |
 
 <!-- project quick links -->
-[proj01]:metric_converter/
-[proj02]:issue_tracker/
-[proj03]:personal_library
-[proj04]:stock_checker/
+[proj01]:#
+[proj02]:#
+[proj03]:#
+[proj04]:https://jungle-frill-traffic.glitch.me/
 [proj05]:#
 [req01]:https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/metric-imperial-converter "Metric-Imperial Converter"
 [req02]:https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/issue-tracker "Issue Tracker"
