@@ -1,191 +1,151 @@
 /*
- *
- *
- *       FILL IN EACH UNIT TEST BELOW COMPLETELY
- *       -----[Keep the tests in the same order!]----
- *       (if additional are added, keep them at the very end!)
- */
+*
+*
+*       FILL IN EACH UNIT TEST BELOW COMPLETELY
+*       -----[Keep the tests in the same order!]----
+*       (if additional are added, keep them at the very end!)
+*/
 
-const chai = require("chai");
-const assert = chai.assert;
+var chai = require('chai');
+var assert = chai.assert;
+var ConvertHandler = require('../controllers/convertHandler.js');
 
-const { JSDOM } = require("jsdom");
-let Translator;
+var convertHandler = new ConvertHandler();
 
-suite("Unit Tests", () => {
-  suiteSetup(() => {
-    // Mock the DOM for testing and load Translator
-    return JSDOM.fromFile("./views/index.html").then((dom) => {
-      global.window = dom.window;
-      global.document = dom.window.document;
-      Translator = require("../public/translator.js");
+suite('Unit Tests', function(){
+  
+  suite('Function convertHandler.getNum(input)', function() {
+    
+    test('Whole number input', function(done) {
+      var input = '32L';
+      assert.equal(convertHandler.getNum(input),32);
+      done();
     });
+    
+    test('Decimal Input', function(done) {
+      const input = '2.5mi';
+      assert.equal(convertHandler.getNum(input), 2.5);      
+      done();
+    });
+    
+    test('Fractional Input', function(done) {
+      const input = '2/5gal';
+      assert.equal(convertHandler.getNum(input), 0.4);
+      done();
+    });
+    
+    test('Fractional Input w/ Decimal', function(done) {
+      const input = '3.5/12km';
+      assert.equal(convertHandler.getNum(input), 0.29167);
+      done();
+    });
+    
+    test('Invalid Input (double fraction)', function(done) {
+      const input = '5/7/13kg';
+      assert.isNaN(convertHandler.getNum(input));      
+      done();
+    });
+    
+    test('No Numerical Input', function(done) {
+      const input = 'l';
+      assert.equal(convertHandler.getNum(input), 1);      
+      done();
+    }); 
+    
+  });
+  
+  suite('Function convertHandler.getUnit(input)', function() {
+    
+    test('For Each Valid Unit Inputs', function(done) {
+      var input = ['gal','l','mi','km','lbs','kg','GAL','L','MI','KM','LBS','KG'];
+      input.forEach(function(ele) {
+        if (ele === 'l' || ele === 'L') {
+          assert.equal(convertHandler.getUnit(ele), 'L');
+        } else {
+          assert.equal(convertHandler.getUnit(ele), ele.toLowerCase());
+        }        
+      });
+      done();
+    });
+    
+    test('Unknown Unit Input', function(done) {
+      const input = '25ms';
+      assert.equal(convertHandler.getUnit(input), 'ms');
+      done();
+    });  
+    
+  });
+  
+  suite('Function convertHandler.getReturnUnit(initUnit)', function() {
+    
+    test('For Each Valid Unit Inputs', function(done) {
+      var input = ['gal','L','mi','km','lbs','kg'];
+      var expect = ['L','gal','km','mi','kg','lbs'];
+      input.forEach(function(ele, i) {
+        assert.equal(convertHandler.getReturnUnit(ele), expect[i]);
+      });
+      done();
+    });
+    
+  });  
+  
+  suite('Function convertHandler.spellOutUnit(unit)', function() {
+    
+    test('For Each Valid Unit Inputs', function(done) {
+      const input = ['gal','L','mi','km','lbs','kg'];
+      const expect = ['gallons','liters','miles','kilometers','pounds','kilograms'];
+      input.forEach(function(ele, i) {
+        assert.equal(convertHandler.spellOutUnit(ele), expect[i]);
+      });
+      done();
+    });
+    
+  });
+  
+  suite('Function convertHandler.convert(num, unit)', function() {
+    
+    test('Gal to L', function(done) {
+      var input = [5, 'gal'];
+      var expected = 18.9271;
+      assert.approximately(convertHandler.convert(input[0],input[1]),expected,0.1); //0.1 tolerance
+      done();
+    });
+    
+    test('L to Gal', function(done) {
+      const input = [7, 'L'];
+      const expected = 1.84921;
+      assert.approximately(convertHandler.convert(input[0],input[1]),expected,0.1); //0.1 tolerance
+      done();
+    });
+    
+    test('Mi to Km', function(done) {
+      const input = [10, 'mi'];
+      const expected = 16.0934;
+      assert.approximately(convertHandler.convert(input[0],input[1]),expected,0.1); //0.1 tolerance
+      done();      
+    });
+    
+    test('Km to Mi', function(done) {
+      const input = [15, 'km'];
+      const expected = 9.32059;
+      assert.approximately(convertHandler.convert(input[0],input[1]),expected,0.1); //0.1 tolerance
+      done();      
+    });
+    
+    test('Lbs to Kg', function(done) {
+      const input = [8, 'lbs'];
+      const expected = 3.62874;
+      assert.approximately(convertHandler.convert(input[0],input[1]),expected,0.1); //0.1 tolerance
+      done();      
+    });
+    
+    test('Kg to Lbs', function(done) {
+      const input = [25, 'kg'];
+      const expected = 55.11561;
+      assert.approximately(convertHandler.convert(input[0],input[1]),expected,0.1); //0.1 tolerance
+      done();      
+    });
+    
   });
 
-  suite("Functions translateAB() and translateBA()", () => {
-    suite("American to British English", () => {
-      test("Mangoes are my favorite fruit. --> Mangoes are my favourite fruit.", (done) => {
-        const input = "Mangoes are my favorite fruit.";
-        const output = "Mangoes are my favourite fruit.";
-        const result = Translator.translateAB(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("I ate yogurt for breakfast. --> I ate yoghurt for breakfast.", (done) => {
-        const input = "I ate yogurt for breakfast.";
-        const output = "I ate yoghurt for breakfast.";
-        const result = Translator.translateAB(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("We had a party at my friend's condo. --> We had a party at my friend's flat.", (done) => {
-        const input = "We had a party at my friend's condo.";
-        const output = "We had a party at my friend's flat.";
-        const result = Translator.translateAB(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("Can you toss this in the trashcan for me? --> Can you toss this in the bin for me?", (done) => {
-        const input = "Can you toss this in the trashcan for me?";
-        const output = "Can you toss this in the bin for me?";
-        const result = Translator.translateAB(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("The parking lot was full. --> The car park was full.", (done) => {
-        const input = "The parking lot was full.";
-        const output = "The car park was full.";
-        const result = Translator.translateAB(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("Like a high tech Rube Goldberg machine. --> Like a high tech Heath Robinson device.", (done) => {
-        const input = "Like a high tech Rube Goldberg machine.";
-        const output = "Like a high tech Heath Robinson device.";
-        const result = Translator.translateAB(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("To play hooky means to skip class or work. --> To bunk off means to skip class or work.", (done) => {
-        const input = "To play hooky means to skip class or work.";
-        const output = "To bunk off means to skip class or work.";
-        const result = Translator.translateAB(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("No Mr. Bond, I expect you to die. --> No Mr Bond, I expect you to die. ", (done) => {
-        const input = "No Mr. Bond, I expect you to die.";
-        const output = "No Mr Bond, I expect you to die.";
-        const result = Translator.translateAB(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("Dr. Grosh will see you now. --> Dr Grosh will see you now. ", (done) => {
-        const input = "Dr. Grosh will see you now.";
-        const output = "Dr Grosh will see you now.";
-        const result = Translator.translateAB(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("Lunch is at 12:15 today. --> Lunch is at 12.15 today.", (done) => {
-        const input = "Lunch is at 12:15 today.";
-        const output = "Lunch is at 12.15 today.";
-        const result = Translator.translateAB(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-    });
-
-    suite("British to American English", () => {
-      test("We watched the footie match for a while. --> We watched the soccer match for a while.", (done) => {
-        const input = "We watched the footie match for a while.";
-        const output = "We watched the soccer match for a while.";
-        const result = Translator.translateBA(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("Paracetamol takes up to an hour to work. --> Tylenol takes up to an hour to work.", (done) => {
-        const input = "Paracetamol takes up to an hour to work.";
-        const output = "Tylenol takes up to an hour to work.";
-        const result = Translator.translateBA(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("First, caramelise the onions. --> First, caramelize the onions.", (done) => {
-        const input = "First, caramelise the onions.";
-        const output = "First, caramelize the onions.";
-
-        const result = Translator.translateBA(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("I spent the bank holiday at the funfair. --> I spent the public holiday at the carnival.", (done) => {
-        const input = "I spent the bank holiday at the funfair.";
-        const output = "I spent the public holiday at the carnival.";
-        const result = Translator.translateBA(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("I had a bicky then went to the chippy. --> I had a cookie then went to the fish-and-chip shop.", (done) => {
-        const input = "I had a bicky then went to the chippy.";
-        const output = "I had a cookie then went to the fish-and-chip shop.";
-        const result = Translator.translateBA(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("I've just got bits and bobs in my bum bag. --> I've just got odds and ends in my fanny pack.", (done) => {
-        const input = "I've just got bits and bobs in my bum bag.";
-        const output = "I've just got odds and ends in my fanny pack.";
-        const result = Translator.translateBA(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("The car boot sale at Boxted Airfield was called off. --> The swap meet at Boxted Airfield was called off.", (done) => {
-        const input = "The car boot sale at Boxted Airfield was called off.";
-        const output = "The swap meet at Boxted Airfield was called off.";
-        const result = Translator.translateBA(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("Have you met Mrs Kalyani? --> Have you met Mrs. Kalyani?", (done) => {
-        const input = "Have you met Mrs Kalyani?";
-        const output = "Have you met Mrs. Kalyani?";
-        const result = Translator.translateBA(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("Prof Joyner of King's College, London. --> Prof. Joyner of King's College, London.", (done) => {
-        const input = "Prof Joyner of King's College, London.";
-        const output = "Prof. Joyner of King's College, London.";
-        const result = Translator.translateBA(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-
-      test("Tea time is usually around 4 or 4.30. --> Tea time is usually around 4 or 4:30.", (done) => {
-        const input = "Lunch is at 12.15 today.";
-        const output = "Lunch is at 12:15 today.";
-        const result = Translator.translateBA(input);
-        assert.equal(result.translatedStr, output);
-        done();
-      });
-    });
-  });
 });

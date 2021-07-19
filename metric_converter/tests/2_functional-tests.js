@@ -2,86 +2,105 @@
  *
  *
  *       FILL IN EACH FUNCTIONAL TEST BELOW COMPLETELY
- *       -----[Keep the tests in the same order!]----
+ *       -----[Keep the tests in the same order!]-----
  *       (if additional are added, keep them at the very end!)
  */
 
-const chai = require("chai");
-const assert = chai.assert;
+var chaiHttp = require('chai-http');
+var chai = require('chai');
+var assert = chai.assert;
+var server = require('../server');
 
-let Translator;
+chai.use(chaiHttp);
 
-suite("Functional Tests", () => {
-  suiteSetup(() => {
-    // DOM already mocked -- load translator then run tests
-    Translator = require("../public/translator.js");
+suite('Functional Tests', function() {
+
+  suite('Routing Tests', function() {
+
+    suite('GET /api/convert => conversion object', function() {
+
+      test('Convert 10L (valid input)', function(done) {
+        chai.request(server)
+          .get('/api/convert')
+          .query({ input: '10L' })
+          .end(function(err, res) {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.initNum, 10);
+            assert.equal(res.body.initUnit, 'L');
+            assert.approximately(res.body.returnNum, 2.64172, 0.1);
+            assert.equal(res.body.returnUnit, 'gal');
+            done();
+          });
+      });
+
+      test('Convert 32g (invalid input unit)', function(done) {
+        chai.request(server)
+          .get('/api/convert')
+          .query({ input: '32g' })
+          .end((err, res) => {            
+            assert.equal(res.status, 200);
+            assert.equal(res.body.initNum, 32);
+            assert.equal(res.body.initUnit, 'g');
+            assert.equal(res.body.returnNum, undefined);
+            assert.equal(res.body.returnUnit, undefined);
+            assert.equal(res.body.string, 'invalid unit');
+            done();
+          });
+
+      });
+
+      test('Convert 3/7.2/4kg (invalid number)', function(done) {
+        chai.request(server)
+          .get('/api/convert')
+          .query({ input: '3/7.2/4kg' })
+          .end((err, res) => {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.initNum, '3/7.2/4');
+            assert.equal(res.body.initUnit, 'kg');
+            assert.equal(res.body.returnNum, undefined);
+            assert.equal(res.body.returnUnit, 'lbs');
+          assert.equal(res.body.string, 'invalid number');
+            done();
+
+          });
+
+
+      });
+
+      test('Convert 3/7.2/4kilomegagram (invalid number and unit)', function(done) {
+        chai.request(server)
+          .get('/api/convert')
+          .query({ input: '3/7.2/4kilomegagram' })
+          .end((err, res) => {
+            assert.equal(res.status, 200);
+            assert.equal(res.body.initNum, '3/7.2/4');
+            assert.equal(res.body.initUnit, 'kilomegagram');
+            assert.equal(res.body.returnNum, undefined);
+            assert.equal(res.body.returnUnit, undefined);
+            assert.equal(res.body.string, 'invalid number and unit');
+            done();
+          });
+
+
+      });
+
+      test('Convert kg (no number)', function(done) {
+        chai.request(server)
+          .get('/api/convert')
+          .query({ input: 'kg' })
+          .end((err, res) => {          
+            assert.equal(res.status, 200);            
+            assert.equal(res.body.initNum, 1);
+            assert.equal(res.body.initUnit, 'kg');
+            assert.approximately(res.body.returnNum, 2.20462, 0.1);
+            assert.equal(res.body.returnUnit, 'lbs');
+            done();
+          });
+        
+      });
+
+    });
+
   });
 
-  suite("Function translateHandler()", () => {
-    /* 
-      The translated sentence is appended to the `translated-sentence` `div`
-      and the translated words or terms are wrapped in 
-      `<span class="highlight">...</span>` tags when the "Translate" button is pressed.
-    */
-    test("Translation appended to the `translated-sentence` `div`", (done) => {
-      const translatedSentence = document.getElementById("translated-sentence");
-      const textInput = document.getElementById("text-input");
-      textInput.value = "We had a party at my friend's condo.";
-      Translator.translateHandler();
-      assert.isTrue(translatedSentence.textContent.length > 0);
-      assert.isTrue(translatedSentence.querySelectorAll("span").length > 0);
-      done();
-    });
-
-    /* 
-      If there are no words or terms that need to be translated,
-      the message 'Everything looks good to me!' is appended to the
-      `translated-sentence` `div` when the "Translate" button is pressed.
-    */
-    test("'Everything looks good to me!' message appended to the `translated-sentence` `div`", (done) => {
-      const translatedSentence = document.getElementById("translated-sentence");
-      const textInput = document.getElementById("text-input");
-      textInput.value = "Hello there, I am a dog.";
-      Translator.translateHandler();
-      assert.equal(
-        translatedSentence.textContent,
-        "Everything looks good to me!"
-      );
-      done();
-    });
-
-    /* 
-      If the text area is empty when the "Translation" button is
-      pressed, append the message 'Error: No text to translate.' to 
-      the `error-msg` `div`.
-    */
-    test("'Error: No text to translate.' message appended to the `translated-sentence` `div`", (done) => {
-      const errorMessage = document.getElementById("error-msg");
-      const textInput = document.getElementById("text-input");
-      textInput.value = "";
-      Translator.translateHandler();
-      assert.equal(errorMessage.textContent, "Error: No text to translate.");
-      done();
-    });
-  });
-
-  suite("Function clearButtonHandler()", () => {
-    /* 
-      The text area and both the `translated-sentence` and `error-msg`
-      `divs` are cleared when the "Clear" button is pressed.
-    */
-    test("Text area, `translated-sentence`, and `error-msg` are cleared", (done) => {
-      const textInput = document.getElementById("text-input");
-      const translatedSentence = document.getElementById("translated-sentence");
-      const errorMessage = document.getElementById("error-msg");
-      Translator.clearButtonHandler();
-      const cleared = [
-        textInput.textContent,
-        translatedSentence.textContent,
-        errorMessage.textContent,
-      ].every((el) => el === "");
-      assert.isTrue(cleared);
-      done();
-    });
-  });
 });

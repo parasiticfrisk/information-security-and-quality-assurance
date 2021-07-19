@@ -16,27 +16,25 @@
 <br>
 
 ## Course Description:
-With everything we do online, there's a vast amount of sensitive information at risk: email addresses, passwords, phone numbers, and much more.
+As your programs or web applications become more complex, you'll want to test them to make sure that new changes don't break their original functionality. With everything we do online, there's a vast amount of sensitive information at risk: email addresses, passwords, phone numbers, and much more.
 
-With the Information Security Certification, you'll build a secure web app with HelmetJS to learn the fundamentals of protecting people's information online.
-
-You'll also build a TCP client, and an Nmap and port scanner in Python. This will help you learn the basics of penetration testing — an important component of good information security.
+In the Information Security and Quality Assurance Certification, you'll learn how to write tests with Chai to ensure your applications work the way you expect them to, and build a secure web app with HelmetJS to learn the fundamentals of protecting people's information online.
 
 <br>
 
 |                           | <h3 align="center">Project</h3> |                            |
 | :------------------------ | :------------------------------ | :------------------------- |
-| Metric-Imperial Converter | [View Page][proj01]             | [View Requirements][req01] |
-| Issue Tracker             | [View Page][proj02]             | [View Requirements][req02] |
-| Personal Library          | [View Page][proj03]             | [View Requirements][req03] |
-| Stock Price Checker       | [View Page][proj04]             | [View Requirements][req04] |
-| Anonymous Message Board   | [View Page][proj05]             | [View Requirements][req05] |
+| Metric-Imperial Converter | [View Code][proj01]             | [View Requirements][req01] |
+| Issue Tracker             | [View Code][proj02]             | [View Requirements][req02] |
+| Personal Library          | [View Code][proj03]             | [View Requirements][req03] |
+| Stock Price Checker       | [View Code][proj04]             | [View Requirements][req04] |
+| Anonymous Message Board   | [View Code][proj05]             | [View Requirements][req05] |
 
 <!-- project quick links -->
-[proj01]:#
+[proj01]:metric_converter/
 [proj02]:#
 [proj03]:#
-[proj04]:https://fcc-stocks.glitch.me/
+[proj04]:#
 [proj05]:#
 [req01]:https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/metric-imperial-converter "Metric-Imperial Converter"
 [req02]:https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/issue-tracker "Issue Tracker"

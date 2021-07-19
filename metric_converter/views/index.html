@@ -1,100 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description"
-      content="American/British English Converter - FreeCodeCamp Information Security and Quality Assurance Certification Project">
+      content="Metric/Imperial Converter - FreeCodeCamp Information Security and Quality Assurance Certification Project">
     <meta name="author" content="August Frisk">
-    <link rel="stylesheet" href="../public/style.css" type="text/css">
-    <title>American/British English Translator</title>
+    <title>Metric/Imperial Converter</title>
+    <link rel="stylesheet" href="public/style.css">
   </head>
 
   <body>
     <header>
       <h1>
-        Quality Assurance 5: American / British English Translator
+        Metric/Imp Converter
       </h1>
     </header>
-    <div id="user-stories">
+    <div id="userstories" style="margin-left: 5%; margin-top: 5%">
       <h3>User Stories</h3>
       <ol>
+        <li>I will help prevent the client from trying to guess(sniff) the MIME type.</li>
+        <li>I will prevent cross-site scripting (XSS) attacks.</li>
         <li>
-          I can enter a simple sentence into the text area and select whether to translate to British or American
-          English from the dropdown menu.
+          I can <b>GET</b> <code>/api/convert</code> with a single parameter containing an accepted number and unit and
+          have it converted.
+        </li>
+        <li>Hint: Split the input by looking for the index of the first character.</li>
+        <li>I can convert 'gal' to 'L' and vice versa. <b>(1 gal to 3.78541 L)</b></li>
+        <li>I can convert 'lbs' to 'kg' and vice versa. <b>(1 lbs to 0.453592 kg)</b></li>
+        <li>I can convert 'mi' to 'km' and vice versa. <b>(1 mi to 1.60934 km)</b></li>
+        <li>If my unit of measurement is invalid, returned will be 'invalid unit'.</li>
+        <li>If my number is invalid, returned with will 'invalid number'.</li>
+        <li>If both are invalid, return will be 'invalid number and unit'.</li>
+        <li>
+          I can use fractions, decimals or both in my parameter(ie. 5, 1/2, 2.5/6), but if nothing is provided it will
+          default to 1.
         </li>
         <li>
-          When the "Translate" button is pressed, append the translated sentence to the <code>translated-sentence</code>
-          <code>div</code>. See the JavaScript files in <code>/public</code> for the different spelling and terms your
-          application should translate.
+          My return will consist of the initNum, initUnit, returnNum, returnUnit, and string spelling out units in
+          format <code>{initNum} {initial_Units} converts to {returnNum} {return_Units}</code> with the result rounded
+          to 5 decimals.
         </li>
-        <li>
-          Your application should handle the way time is written in American and British English. For example, ten
-          thirty
-          is written as "10.30" in British English and "10:30" in American English.
-        </li>
-        <li>
-          Your application should also handle the way titles/honorifics are abbreviated in American and British English.
-          For example, Doctor Wright is abbreviated as "Dr Wright" in British English and "Dr. Wright" in American
-          English.
-          See <code>/public/american-to-british-titles.js</code> for the different titles your application should
-          handle.
-        </li>
-        <li>
-          Wrap any translated spelling or terms with
-          <code>&lt;span class=&quot;highlight&quot;&gt;...&lt;/span&gt;</code>
-          tags so they appear in green.
-        </li>
-        <li>
-          If the sentence in the text area has no spelling or terms that should be translated, append the message
-          "Everything
-          looks good to me!" to the <code>translated-sentence</code> <code>div</code>.
-        </li>
-        <li>
-          If there is no text in the text area, append the message "Error: No text to translate." to the
-          <code>error-msg</code>
-          <code>div</code> so the text appears in red.
-        </li>
-        <li>
-          I can press the "Clear Input" button to remove all text from the text area and the
-          <code>translated-sentence</code>
-          <code>div</code>.
-        </li>
-        <li>
-          All 20 unit tests are complete and passing. See <code>/tests/1_unit-tests.js</code> for the sentences you
-          should
-          write tests for.
-        </li>
-        <li>
-          All 4 functional tests are complete and passing. See <code>/tests/2_functional-tests.js</code> for the
-          functionality
-          you should write tests for.
-        </li>
+        <li>All 16 unit tests are complete and passing.</li>
+        <li>All 5 functional tests are complete and passing.</li>
       </ol>
+      <h3>Example usage:</h3>
+      <code>/api/convert?input=4gal</code><br>
+      <code>/api/convert?input=1/2km</code><br>
+      <code>/api/convert?input=5.4/3lbs</code><br>
+      <code>/api/convert?input=kg</code><br>
+      <h3>Example return:</h3>
+      <code>{initNum: 3.1, initUnit: 'mi', returnNum: 5.0000008, returnUnit: 'km', string: '3.1 miles converts to 5.00002
+        kilometers'}</code>
     </div>
-    <hr style="margin: 25px">
-    <div class="container">
-      <div class="form-container">
-        <textarea rows="10" cols="60" id="text-input"></textarea>
-        <br>
-        <select id="locale-select">
-          <option value="american-to-british">American to British</option>
-          <option value="british-to-american">British to American</option>
-        </select>
-        <input type="button" value="Translate" id="translate-btn">
-        <input type="button" value="Clear" id="clear-btn">
-      </div>
-      <div id="output-container">
-        <div id="solution-container">
-          Translated Sentence:
-          <div id="translated-sentence"></div>
-          <div id="error-msg"></div>
-        </div>
-      </div>
+    <hr style="margin: 50px">
+    <div id="testui" style="margin-left: 5%">
+      <h2 style="text-align: left">Front-End:</h2>
+      <form id="convertForm" class="border">
+        <input type="text" id="convertField" name="input" placeholder="3.1mi" style="width: 200px">
+        <input id="convert" type="submit" value="Convert!">
+      </form>
+      <p id="result"></p>
+      <code id="jsonResult"></code>
     </div>
+    <hr style="margin: 50px; margin-top: 200px">
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+      integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+    <script>
+      $(function () {
+        $("#convertForm").submit(function () {
+          event.preventDefault();
+          $.ajax({
+            url: "/api/convert",
+            type: "get",
+            data: $("#convertForm").serialize(),
+            success: function (data) {
+              $("#result").text(data.string || data);
+              $("#jsonResult").text(JSON.stringify(data));
+            }
+          });
+        });
+      });
+    </script>
   </body>
-  <script src="../public/translator.js" type="module"></script>
 
 </html>
