@@ -33,7 +33,7 @@ In the Information Security and Quality Assurance Certification, you'll learn ho
 <!-- project quick links -->
 [proj01]:metric_converter/
 [proj02]:issue_tracker/
-[proj03]:#
+[proj03]:personal_library
 [proj04]:stock_checker/
 [proj05]:#
 [req01]:https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/metric-imperial-converter "Metric-Imperial Converter"
