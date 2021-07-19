@@ -33,7 +33,7 @@ In the Information Security and Quality Assurance Certification, you'll learn ho
 <!-- project quick links -->
 [proj01]:#
 [proj02]:#
-[proj03]:#
+[proj03]:https://mini-buttered-darkness.glitch.me
 [proj04]:https://jungle-frill-traffic.glitch.me/
 [proj05]:#
 [req01]:https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/metric-imperial-converter "Metric-Imperial Converter"
