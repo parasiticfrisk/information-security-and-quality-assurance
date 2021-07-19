@@ -8,7 +8,7 @@
 </div>
 
 <!-- badge info -->
-[school-badge]:https://img.shields.io/badge/free_Code_Camp-Information_Security_&_QA-white?labelColor=midnightblue&logo=freeCodeCamp&style=for-the-badge
+[school-badge]:https://img.shields.io/badge/free_Code_Camp-Security_&_Quality_Assurance-white?labelColor=midnightblue&logo=freeCodeCamp&style=for-the-badge
 [course-link]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/ "Information Security & Quality Assurance"
 [license-badge]:https://img.shields.io/github/license/parasiticfrisk/basic-cognitive-process?color=success&&style=for-the-badge
 [LICENSE]:LICENSE "MIT License"
@@ -32,7 +32,7 @@ In the Information Security and Quality Assurance Certification, you'll learn ho
 
 <!-- project quick links -->
 [proj01]:metric_converter/
-[proj02]:#
+[proj02]:issue_tracker/
 [proj03]:#
 [proj04]:stock_checker/
 [proj05]:#
