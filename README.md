@@ -34,7 +34,7 @@ In the Information Security and Quality Assurance Certification, you'll learn ho
 [proj01]:metric_converter/
 [proj02]:#
 [proj03]:#
-[proj04]:#
+[proj04]:stock_checker/
 [proj05]:#
 [req01]:https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/metric-imperial-converter "Metric-Imperial Converter"
 [req02]:https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/issue-tracker "Issue Tracker"
