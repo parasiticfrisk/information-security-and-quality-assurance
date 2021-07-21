@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="August Frisk">
+    <meta name="description" content="Metric/Imperial Converter - A freeCodeCamp Info-Sec & QA certification project">
+    <link rel="stylesheet" href="static/boostrap4.1.2.min.css">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Metric-Imperial Converter by August Frisk</title>
+  </head>
+
+  <body class="text-center">
+    <form id="convertForm" class="form-signin">
+      <img
+        src="https://d33wubrfki0l68.cloudfront.net/4ba4ee4d1ac4caf5c0c3fa44ccc8fddd5bd11222/3f5b1/img/freecodecamp-alternative.png"
+        alt="FreeCodeCamp Logo">
+      <h1 class="h3 mt-3 mb-3 font-weight-normal">Metric-Imperial Converter</h1>
+      <label for="convertField" class="sr-only">Number and unit to be converted</label>
+      <input id="convertField" class="form-control mb-4" type="text" name="input"
+        placeholder="Examples: 4gal 1/2km 5.4/3lbs 1kg" required autofocus>
+      <button id="convert" class="btn btn-lg btn-primary btn-block" type="submit">Convert!</button>
+      <p id="result" class="mt-4 mb-3"></p>
+      <code id="jsonResult"></code>
+      <p class="mt-4 mb-2 text-muted">&copy; 2018 <a href="https://github.com/parasiticfrisk" target="_blank">August
+          Frisk</a></p>
+    </form>
+
+    <div id="userstories">
+      <div class="usage">
+        <h3>Usage:</h3>
+        <p>Currently accepted units: gallons (gal), liters (l), kilograms (kg), pounds (lbs), miles (mi) and kilometers
+          (km)</p>
+        <p>Examples:</p>
+        <code>/api/convert?input=4gal</code>
+        <br>
+        <code>/api/convert?input=1/2km</code>
+        <br>
+        <code>/api/convert?input=5.4/3lbs</code>
+        <br>
+        <code>/api/convert?input=kg</code>
+        <br>
+      </div>
+      <div class="usage">
+        <h3>Return:</h3>
+        <code>{initNum: 3.1, initUnit: 'mi', returnNum: 5.0000008, returnUnit: 'km', string: '3.1 miles converts to 5.00002 kilometers'}</code>
+      </div>
+    </div>
+    <script src="static/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        $('#convertForm').submit(function (event) {
+          event.preventDefault();
+          $.ajax({
+            url: '/api/convert',
+            type: 'get',
+            data: $('#convertForm').serialize(),
+            success: function (data) {
+              $('#result').text(data.string || data);
+              $('#jsonResult').text(JSON.stringify(data));
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+
+</html>
