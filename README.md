@@ -32,7 +32,7 @@ In the Information Security and Quality Assurance Certification, you'll learn ho
 
 <!-- project quick links -->
 [proj01]:https://cumbersome-band-dead.glitch.me
-[proj02]:#
+[proj02]:https://outgoing-emphasized-cheque.glitch.me
 [proj03]:https://mini-buttered-darkness.glitch.me
 [proj04]:https://jungle-frill-traffic.glitch.me/
 [proj05]:#
