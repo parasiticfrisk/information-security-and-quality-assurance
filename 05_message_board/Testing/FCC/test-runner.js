@@ -31,11 +31,9 @@ var EventEmitter = require('events').EventEmitter;
 var Mocha = require('mocha'),
     fs = require('fs'),
     path = require('path');
-    require("@babel/register");
 
-var mocha = new Mocha({ timeout: 5000 });
-var testDir = './tests'
-
+var mocha = new Mocha();
+var testDir = __dirname + '/../';
 
 // Add each .js file to the mocha instance
 fs.readdirSync(testDir).filter(function(file){
@@ -66,8 +64,8 @@ emitter.run = function() {
           title: test.title,
           context: context.slice(0, -separator.length),
           state: test.state,
-          // body: body,
-          assertions: analyser(body)
+          body: body,
+          // assertions: analyser(body)
         };
         tests.push(obj);
     })
