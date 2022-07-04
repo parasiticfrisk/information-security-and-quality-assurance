@@ -1,6 +1,6 @@
 <div align="center">
 
-# Information Security & Quality Assurance
+# (Legacy) Information Security & Quality Assurance
 
 [![school-badge]][course-link]
 [![license-badge]][LICENSE]
@@ -18,7 +18,7 @@
 ## Course Description:
 As your programs or web applications become more complex, you'll want to test them to make sure that new changes don't break their original functionality. With everything we do online, there's a vast amount of sensitive information at risk: email addresses, passwords, phone numbers, and much more.
 
-In the Information Security and Quality Assurance Certification, you'll learn how to write tests with Chai to ensure your applications work the way you expect them to, and build a secure web app with HelmetJS to learn the fundamentals of protecting people's information online.
+In the [(Legacy) Information Security and Quality Assurance Certification][course-link], you'll learn how to write tests with Chai to ensure your applications work the way you expect them to, and build a secure web app with HelmetJS to learn the fundamentals of protecting people's information online.
 
 <br>
 
