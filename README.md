@@ -22,7 +22,7 @@ In the Information Security and Quality Assurance Certification, you'll learn ho
 
 <br>
 
-## [View Certificate]()
+## [View Certificate](https://raw.githubusercontent.com/parasiticfrisk/information-security-and-quality-assurance/main/.github/information-security-and-quality-assurance.jpg?token=GHSAT0AAAAAABWHWQ5NGFJAPWN56URDW6JUYWCZPXA)
 
 <br>
 
