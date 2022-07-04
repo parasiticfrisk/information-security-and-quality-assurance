@@ -26,7 +26,7 @@ In the Information Security and Quality Assurance Certification, you'll learn ho
 
 <br>
 
-### Notice
+### Notice:
 By viewing and/or interacting with these files as a current or future student of Free Code Camp, you agree to the terms of the [Academic Honesty Policy].
 
 <br>
