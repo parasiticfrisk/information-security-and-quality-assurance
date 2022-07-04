@@ -8,9 +8,9 @@
 </div>
 
 <!-- badge info -->
-[school-badge]:https://img.shields.io/badge/free_Code_Camp-Security_&_Quality_Assurance-white?labelColor=midnightblue&logo=freeCodeCamp&style=for-the-badge
+[school-badge]:https://img.shields.io/badge/free_Code_Camp-Security_&_Quality_Assurance-white?labelColor=006400&logo=freeCodeCamp&style=for-the-badge
 [course-link]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/ "Information Security & Quality Assurance"
-[license-badge]:https://img.shields.io/github/license/parasiticfrisk/information-security-and-quality-assurance?color=informational&&style=for-the-badge
+[license-badge]:https://img.shields.io/github/license/parasiticfrisk/information-security-and-quality-assurance?color=informational&style=for-the-badge
 [LICENSE]:LICENSE "MIT License"
 
 <br>
