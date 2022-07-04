@@ -50,4 +50,4 @@ By viewing and/or interacting with these files as a current or future student of
 [req03]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/personal-library "Personal Library"
 [req04]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/stock-price-checker "Stock Price Checker"
 [req05]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/anonymous-message-board "Anonymous Message Board"
-[Academic Honesty Policy]:../academic_honesty_policy
+[Academic Honesty Policy]:./academic_honesty_policy
