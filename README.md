@@ -37,7 +37,6 @@ In the [(Legacy) Information Security and Quality Assurance Certification][cours
 <br>
 
 ---
-#### Notice
 By viewing and/or interacting with these files as a current or future student of Free Code Camp, you agree to the terms of the [Academic Honesty Policy].
 
 <!-- quick links -->
