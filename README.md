@@ -22,12 +22,7 @@ In the [(Legacy) Information Security and Quality Assurance Certification][cours
 
 <br>
 
-## [View Certificate](https://raw.githubusercontent.com/parasiticfrisk/information-security-and-quality-assurance/main/.github/information-security-and-quality-assurance.jpg?token=GHSAT0AAAAAABWHWQ5NGFJAPWN56URDW6JUYWCZPXA)
-
-<br>
-
-### Notice:
-By viewing and/or interacting with these files as a current or future student of Free Code Camp, you agree to the terms of the [Academic Honesty Policy].
+### This [Developer Certification] represents approximately 300 hours of coursework.
 
 <br>
 
@@ -39,7 +34,13 @@ By viewing and/or interacting with these files as a current or future student of
 | Stock Price Checker       | [View Project][proj04] | [View Requirements][req04] |
 | Anonymous Message Board   | [View Project][proj05] | [View Requirements][req05] |
 
-<!-- project quick links -->
+<br>
+
+---
+#### Notice
+By viewing and/or interacting with these files as a current or future student of Free Code Camp, you agree to the terms of the [Academic Honesty Policy].
+
+<!-- quick links -->
 [proj01]:https://cumbersome-band-dead.glitch.me
 [proj02]:https://outgoing-emphasized-cheque.glitch.me
 [proj03]:https://mini-buttered-darkness.glitch.me
@@ -51,3 +52,4 @@ By viewing and/or interacting with these files as a current or future student of
 [req04]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/stock-price-checker "Stock Price Checker"
 [req05]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/anonymous-message-board "Anonymous Message Board"
 [Academic Honesty Policy]:./academic_honesty_policy
+[Developer Certification]:https://raw.githubusercontent.com/parasiticfrisk/information-security-and-quality-assurance/main/.github/information-security-and-quality-assurance.jpg?token=GHSAT0AAAAAABWHWQ5NGFJAPWN56URDW6JUYWCZPXA
