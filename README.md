@@ -1,6 +1,6 @@
 <br>
 
-![Information Security and Quality Assurance Certificate](.github/information-security-and-quality-assurance.jpg)
+![Information Security and Quality Assurance Certificate](images/information-security-and-quality-assurance.jpg)
 
 <br>
 
