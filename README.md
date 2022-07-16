@@ -1,10 +1,12 @@
 <div align="center">
 
-# (Legacy) Information Security & Quality Assurance
+# (Legacy) Information Security and Quality Assurance
 
-[![school-badge]][course-link]
-[![license-badge]][LICENSE]
-![Maintenance](https://img.shields.io/maintenance/no/2018?style=for-the-badge)
+[![freeCodeCamp badge]][Information Security and Quality Assurance Certificate]
+[![License badge]][Repository license]
+![JavaScript badge](https://img.shields.io/badge/JavaScript-000?logo=JavaScript&logoColor=F7DF1E&style=flat-square)
+![Node.js badge](https://img.shields.io/badge/Node.js-000?logo=Node.js&style=flat-square)
+![Maintenance badge](https://img.shields.io/maintenance/no/2018?style=flat-square)
 
 </div>
 
@@ -17,17 +19,17 @@ In the [(Legacy) Information Security and Quality Assurance Certification][cours
 
 <br>
 
-### This [Developer Certification] represents approximately 300 hours of coursework.
+### This [Developer Certification][Information Security and Quality Assurance Certificate] represents approximately 300 hours of coursework.
 
 <br>
 
-| Project                   |                        |                            |
-| :------------------------ | :--------------------- | :------------------------- |
-| Metric-Imperial Converter | [View Project][proj01] | [View Requirements][req01] |
-| Issue Tracker             | [View Project][proj02] | [View Requirements][req02] |
-| Personal Library          | [View Project][proj03] | [View Requirements][req03] |
-| Stock Price Checker       | [View Project][proj04] | [View Requirements][req04] |
-| Anonymous Message Board   | [View Project][proj05] | [View Requirements][req05] |
+| Project Name              | Web Page                | Project Requirements            |
+| :------------------------ | :---------------------- | :------------------------------ |
+| Metric-Imperial Converter | [View Converter]        | [Converter Requirements]        |
+| Issue Tracker             | [View Issue Tracker]    | [Issue Tracker Requirements]    |
+| Personal Library          | [View Personal Library] | [Personal Library Requirements] |
+| Stock Price Checker       | [View Price Checker]    | [Price Checker Requirements]    |
+| Anonymous Message Board   | [View Message Board]    | [Message Board Requirements]    |
 
 <br>
 
@@ -36,22 +38,21 @@ By viewing and/or interacting with the files associated within these repositorie
 
 <!-- quick links -->
 <!-- badge info -->
-[school-badge]:https://img.shields.io/badge/free_Code_Camp-Security_&_Quality_Assurance-white?labelColor=006400&logo=freeCodeCamp&style=for-the-badge
-[course-link]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/ "view on freeCodeCamp"
-[license-badge]:https://img.shields.io/github/license/parasiticfrisk/information-security-and-quality-assurance?color=informational&style=for-the-badge
-[LICENSE]:LICENSE "view license"
+[freeCodeCamp badge]:https://img.shields.io/badge/freeCodeCamp-Security_&_QA-white?labelColor=006400&logo=freeCodeCamp&style=flat-square
+[Information Security and Quality Assurance Certificate]:https://parasiticfrisk.github.io/information-security-and-quality-assurance/
+[License badge]:https://img.shields.io/github/license/parasiticfrisk/information-security-and-quality-assurance?color=informational&style=flat-square
+[Repository license]:LICENSE
 <!-- projects -->
-[proj01]:https://cumbersome-band-dead.glitch.me "view on glitch"
-[proj02]:https://outgoing-emphasized-cheque.glitch.me "view on glitch"
-[proj03]:https://mini-buttered-darkness.glitch.me "view on glitch"
-[proj04]:https://jungle-frill-traffic.glitch.me "view on glitch"
-[proj05]:https://tidy-lush-society.glitch.me "view on glitch"
+[View Converter]:https://cumbersome-band-dead.glitch.me
+[View Issue Tracker]:https://outgoing-emphasized-cheque.glitch.me
+[View Personal Library]:https://mini-buttered-darkness.glitch.me
+[View Price Checker]:https://jungle-frill-traffic.glitch.me 
+[View Message Board]:https://tidy-lush-society.glitch.me
 <!-- requirements -->
-[req01]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/metric-imperial-converter "view on freeCodeCamp"
-[req02]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/issue-tracker "view on freeCodeCamp"
-[req03]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/personal-library "view on freeCodeCamp"
-[req04]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/stock-price-checker "view on freeCodeCamp"
-[req05]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/anonymous-message-board "view on freeCodeCamp"
+[Converter Requirements]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/metric-imperial-converter
+[Issue Tracker Requirements]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/issue-tracker
+[Personal Library Requirements]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/personal-library
+[Price Checker Requirements]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/stock-price-checker
+[Message Board Requirements]:https://www.freecodecamp.org/learn/information-security-and-quality-assurance/information-security-and-quality-assurance-projects/anonymous-message-board
 <!-- misc -->
-[Academic Honesty Policy]:./academic_honesty_policy "view policy"
-[Developer Certification]:https://raw.githubusercontent.com/parasiticfrisk/information-security-and-quality-assurance/main/.github/information-security-and-quality-assurance.jpg?token=GHSAT0AAAAAABWHWQ5NGFJAPWN56URDW6JUYWCZPXA "view certificate"
+[Academic Honesty Policy]:./academic_honesty_policy
